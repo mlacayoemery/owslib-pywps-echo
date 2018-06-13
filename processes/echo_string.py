@@ -1,6 +1,6 @@
 import pywps
 
-class EchoString(pywps.Process):
+class WebProcess(pywps.Process):
     def __init__(self):
         inputs = [pywps.LiteralInput('message',
                                      'Input message',
@@ -10,7 +10,7 @@ class EchoString(pywps.Process):
                                        'Output message',
                                        data_type='string')]
 
-        super(EchoString, self).__init__(
+        super(WebProcess, self).__init__(
             self._handler,
             identifier='echo_string',
             title='Echo String Test',

@@ -4,7 +4,7 @@ import processes.echo_string
 
 app = flask.Flask(__name__)
 
-wps_processes = [processes.echo_string.EchoString()]
+wps_processes = [processes.echo_string.WebProcess()]
 
 service = pywps.Service(wps_processes, ['pywps.cfg'])
 
