@@ -6,8 +6,8 @@ class WebProcess(pywps.Process):
                                      'Input message',
                                      data_type='string')]
 
-        outputs = [pywps.LiteralOutput('echo',
-                                       'Output message',
+        outputs = [pywps.LiteralOutput('response',
+                                       'Output response',
                                        data_type='string')]
 
         super(WebProcess, self).__init__(
@@ -23,6 +23,6 @@ class WebProcess(pywps.Process):
         )
 
     def _handler(self, request, response):
-        response.outputs['echo'].data = request.inputs['message'][0].data
-        response.outputs['echo'].uom = pywps.UOM('unity')
+        response.outputs['response'].data = request.inputs['message'][0].data
+        response.outputs['response'].uom = pywps.UOM('unity')
         return response
