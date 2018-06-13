@@ -1,10 +1,25 @@
+import os
+import importlib
+
 import flask
 import pywps
-import processes.echo_string
+
+process_path = os.path.join(os.path.dirname(__file__), "processes")
 
 app = flask.Flask(__name__)
 
-wps_processes = [processes.echo_string.WebProcess()]
+wps_processes = []
+
+for file_name in os.listdir(process_path):
+    if file_name != "__init__.py" and file_name.endswith(".py"):
+        module_name = os.path.splitext(file_name)[0]
+        m = importlib.import_module(".".join(["processes",
+                                              module_name]))
+        print("Found process %s" % module_name)
+        c = getattr(m, "WebProcess")
+        
+        wps_processes.append(c())
+
 
 service = pywps.Service(wps_processes, ['pywps.cfg'])
 
