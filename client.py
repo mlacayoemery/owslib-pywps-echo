@@ -12,13 +12,13 @@ process_name = "echo_string"
 inputs = [("message", "Hello World!")]
 tests[process_name] = inputs
 
-process_name = "echo_gml"
-inputs = [("geometry", owslib.wps.GMLMultiPolygonFeatureCollection([[(-102.8184, 39.5273),
-                                                                     (-102.8184, 37.418),
-                                                                     (-101.2363, 37.418),
-                                                                     (-101.2363, 39.5273),
-                                                                     (-102.8184, 39.5273)]]))]
-#tests[process_name] = inputs
+process_name = "echo_vector"
+inputs = [("message", owslib.wps.GMLMultiPolygonFeatureCollection([[(-102.8184, 39.5273),
+                                                                    (-102.8184, 37.418),
+                                                                    (-101.2363, 37.418),
+                                                                    (-101.2363, 39.5273),
+                                                                    (-102.8184, 39.5273)]]))]
+tests[process_name] = inputs
 
 for process_name in tests:
     print("%s test" % process_name)
