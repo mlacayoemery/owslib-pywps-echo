@@ -6,7 +6,7 @@ class WebProcess(pywps.Process):
                                      'Input message',
                                      supported_formats=[pywps.Format('application/gml+xml'),
                                                         pywps.Format('text/xml')],
-                                     mode=pywps.validator.mode.MODE.STRICT)]
+                                     mode=pywps.validator.mode.MODE.SIMPLE)]
 
         outputs = [pywps.ComplexOutput('response',
                                        'Output response',
