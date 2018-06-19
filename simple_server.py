@@ -5,7 +5,8 @@ class EchoVector(pywps.Process):
     def __init__(self):
         inputs = [pywps.ComplexInput('message',
                                      'Input message',
-                                     supported_formats=[pywps.Format('application/gml+xml')],
+                                     supported_formats=[pywps.Format('application/gml+xml'),
+                                                        pywps.Format('text/xml')],
                                      mode=pywps.validator.mode.MODE.STRICT)]
 
         outputs = [pywps.ComplexOutput('response',
