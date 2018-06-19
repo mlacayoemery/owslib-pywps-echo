@@ -1,5 +1,5 @@
 import owslib.wps
-import lxml.etree
+import owslib.etree
 from gdal import ogr
 
 gml = owslib.wps.GMLMultiPolygonFeatureCollection([[(-102.8184, 39.5273),
@@ -9,7 +9,7 @@ gml = owslib.wps.GMLMultiPolygonFeatureCollection([[(-102.8184, 39.5273),
                                                     (-102.8184, 39.5273)]])
 
 tmp = open("/tmp/gml", 'wb')
-tmp.write(lxml.etree.tostring(gml.getXml()))
+tmp.write(owslib.etree.etree.tostring(gml.getXml()))
 tmp.close()
         
 drv = ogr.GetDriverByName("GML")
